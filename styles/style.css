@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(0deg, #f7f7f7 23.8%, #fcdddd 92%);
+  font-family: "Lato", sans-serif;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-container {
+  margin: 6rem auto 0;
+  min-width: 40rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  display: flex;
+  position: relative;
+}
+.music-container .music-info {
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - 17rem);
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.music-container .music-info .progress-container {
+  margin-left: 1rem;
+  height: 1rem;
+  background: #fff;
+  width: 100%;
+  border-radius: 1rem;
+}
+.music-container .music-info .progress-container .progress {
+  background: #af0202;
+  width: 0%;
+  height: 100%;
+  border-radius: 1rem;
+}
+.music-container .img-container {
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  bottom: 5rem;
+  margin-right: 1rem;
+}
+.music-container .img-container::after {
+  content: "";
+  border: #fff solid 1rem;
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.music-container .img-container img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+}
+.music-container .controls {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.music-container .controls-btn {
+  border: 0;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  background: #ecfaff;
+  color: #b8b8b8;
+}
+.music-container .controls-btn-big {
+  color: #777777;
+  font-size: 2.5rem;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-4.5rem);
+}
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=style.css.map */
