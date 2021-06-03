@@ -5,6 +5,7 @@ const cover = document.getElementById("cover");
 const play = document.getElementById("play");
 const previous = document.getElementById("previous");
 const next = document.getElementById("next");
+const volume = document.getElementById("volume");
 const songs = ["hey", "summer", "ukulele"];
 let currentSong = songs[0];
 let isPlaying = false;
