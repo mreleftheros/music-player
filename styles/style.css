@@ -34,6 +34,7 @@ body {
 .music-container .music-info {
   opacity: 0;
   position: absolute;
+  z-index: -1;
   top: 0;
   right: 0;
   width: calc(100% - 17rem);
