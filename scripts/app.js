@@ -10,6 +10,7 @@ const volumeOutput = document.getElementById("volumeOutput");
 const songs = ["hey", "summer", "ukulele"];
 let currentSong = songs[0];
 let isPlaying = false;
+volume.value = .8;
 let audioVolume = audio.volume = .8;
 
 // function to load a song
@@ -79,15 +80,19 @@ const loadPreviousSong = () => {
     audio.play();
 };
 
+// function to display volume
+const displayVolume = () => {
+  let audioVolumePercent = audioVolume * 100;
+  let volumeString = audioVolumePercent.toFixed(0) + "%";
+
+  volumeOutput.textContent = volumeString;
+};
+
 // function to change volume
 const changeVolume = e => {
   audioVolume = audio.volume = e.target.value;
-  let volumeString;
-  let audioVolumePercent = audioVolume * 100;
-
-  volumeString = audioVolumePercent.toFixed(0) + "%";
-  volumeOutput.textContent = volumeString;
-
+  
+  displayVolume();
 };
 
 // event listeners
