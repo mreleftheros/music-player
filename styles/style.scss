@@ -24,7 +24,7 @@ body {
   position: relative;
 
   .music-info {
-    opacity: .5;
+    opacity: 0;
     position: absolute;
     top: 0;
     right: 0;
@@ -35,7 +35,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: opacity .3s ease, transform .3s ease;
+    transition: opacity .5s ease, transform .5s ease;
 
     .progress-container {
       margin-left: 1rem;
