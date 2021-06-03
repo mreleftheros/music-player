@@ -10,14 +10,14 @@ let currentSong = songs[0];
 
 // function to load a song
 const loadSong = () => {
-  //change src
+  // change src
   let audioSrc = `./assets/${currentSong}.mp3`;
   audio.src = audioSrc;
 
-  //change title
+  // change title
   title.textContent = currentSong;
 
-  //change cover
+  // change cover
   let imgSrc = `./assets/${currentSong}.jpg`;
   cover.src = imgSrc;
 };
@@ -36,7 +36,7 @@ const playSong = () => {
   }
 };
 
-//function to load next song
+// function to load next song
 const loadNextSong = () => {
   let songIndex = songs.indexOf(currentSong);
   let nextSongIndex = songIndex + 1;
@@ -49,6 +49,7 @@ const loadNextSong = () => {
     currentSong = songs[nextSongIndex];
 
   loadSong();
+  playSong();
 };
 
 // event listeners
