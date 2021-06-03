@@ -3,10 +3,11 @@ const title = document.getElementById("title");
 const audio = document.getElementById("audio");
 const cover = document.getElementById("cover");
 const play = document.getElementById("play");
-const prev = document.getElementById("prev");
+const previous = document.getElementById("previous");
 const next = document.getElementById("next");
 const songs = ["hey", "summer", "ukulele"];
 let currentSong = songs[0];
+let isPlaying = false;
 
 // function to load a song
 const loadSong = () => {
@@ -25,11 +26,13 @@ const loadSong = () => {
 // function to play song
 const playSong = () => {
   if(audio.paused) {
+    isPlaying = true;
     musicContainer.classList.add("play");
     audio.play();
     play.innerHTML = `<i class="fas fa-pause"></i>`;
   }
   else if(!audio.paused) {
+    isPlaying = false;
     musicContainer.classList.remove("play");
     audio.pause();
     play.innerHTML = `<i class="fas fa-play"></i>`;
@@ -49,9 +52,31 @@ const loadNextSong = () => {
     currentSong = songs[nextSongIndex];
 
   loadSong();
-  playSong();
+
+  //check if previous song was playing and automatically play next song
+  if(isPlaying)
+    audio.play();
+};
+
+// function to load previous song
+const loadPreviousSong = () => {
+  let songIndex = songs.indexOf(currentSong);
+  let previousSongIndex = songIndex - 1;
+
+  //check if nextSongIndex is in array
+  if(previousSongIndex < 0)
+    currentSong = songs[songs.length - 1];
+  else
+    currentSong = songs[previousSongIndex];
+
+  loadSong();
+
+  //check if previous song was playing and automatically play next song
+  if(isPlaying)
+    audio.play();
 };
 
 // event listeners
 play.addEventListener("click", playSong);
 next.addEventListener("click", loadNextSong);
+previous.addEventListener("click", loadPreviousSong);
